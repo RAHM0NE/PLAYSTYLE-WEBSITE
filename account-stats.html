@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLAYSTYLE</title>
+  <!-- Bootstrap.min.css -->
+  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/styles.css" rel="stylesheet">
+  <style>
+    /* Custom CSS to remove bullet points */
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="starter-template">
+      <div id="loggedin">
+        <div data-bind="with: user">
+          <h1> <span data-bind="text: display_name"></span></h1>
+          <img data-bind="attr: {src: images[0].url}">
+          <p>LV <span data-bind="text: $root.followersCount"></span></p> <!-- New line to display follower count -->
+        </div>
+        <hr />
+        <h2>Top 5 Artists</h2>
+        <!-- Display top 5 artists -->
+        <ul data-bind="foreach: artists">
+          <li>
+            <span data-bind="text: name"></span><br />
+          </li>
+        </ul>
+        <button id="login-button" class="btn btn-primary" data-bind="click: logout">LOG OUT</button>
+      </div>
+    </div>
+  </div>
+  <!-- jQuery required for Bootstrap core JavaScript -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <!-- This file would be available as a vendor dependency in your local project if you're using Bower or Composer -->
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/knockout/dist/knockout.js"></script>
+  <script src="bower_components/spotify-web-api-js/src/spotify-web-api.js"></script>
+  <script src="js/oauth-config.js"></script>
+  <script src="js/oauth-manager.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

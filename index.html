@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>PLAYSTYLE</title>
+
+    <!-- bootstrap.min.css -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="styles.css">
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>PLAYSTYLE!</h1>
+      </div>
+
+      <!-- ko ifnot: isLoggedIn -->
+      <div id="login">
+        <div data-bind="if: loginErrorMessage">
+          <div class="alert alert-danger" data-bind="text: loginErrorMessage"></div>
+        </div>
+        <button id="login-button" class="btn btn-primary" data-bind="click: login">Log in with Spotify</button>
+      </div>
+      <!-- /ko -->
+
+      <!-- ko if: isLoggedIn -->
+      <div id="loggedin">
+        <div data-bind="with: user">
+          <h1><span data-bind="text: display_name"></span></h1>
+        </div>
+      </div>
+      <!-- /ko -->
+
+    </div>
+
+    <!-- jQuery required for Bootstrap core JavaScript -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <!-- This file would be available as a vendor dependency in your local project if you're using Bower or Composer -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/knockout/dist/knockout.js"></script>
+    <script src="bower_components/spotify-web-api-js/src/spotify-web-api.js"></script>
+    <script src="js/oauth-config.js"></script>
+    <script src="js/oauth-manager.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
