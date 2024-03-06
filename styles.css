@@ -7,9 +7,6 @@
   text-align: center;
 }
 
-#login-button {
-  margin: 30px;
-}
 
 #loggedin img {
   margin: 0 auto;
@@ -27,7 +24,195 @@
 }
 
 body {
-  background-image: url('TITLE SCREEN.png'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
-  background-size: cover; /* This ensures that the background image covers the entire viewport */
-  background-repeat: no-repeat; /* This prevents the background image from repeating */
+  background-image: url('TITLE SCREEN.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+body.account-stats {
+  background-image: url('RESULTS SCREEN.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+body {
+  color: white; /* Set the color of the text to white */
+}
+
+/* Additional styling for specific elements if needed */
+h1, h2, h3, h4, h5, h6 {
+  color: white; /* Set the color of headings to white */
+}
+
+p {
+  color: white; /* Set the color of paragraphs to white */
+}
+
+@font-face {
+  font-family: 'FFIV';
+  src: url('FFIV.TTF') format('truetype');
+}
+
+@font-face {
+  font-family: 'RETRO';
+  src: url('Retro Gaming.ttf') format('truetype');
+}
+
+body {
+  font-family: "FFIV"; /* Set the font family for the entire page */
+  font-size: 50px;
+}
+
+/* Additional styling for specific elements if needed */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "RETRO", regular; /* Set the font family for headings, NAME */
+  font-size: 27px;
+}
+
+p {
+  font-family: "FFIV"; /* Set the font family for paragraphs */
+  font-size: 72px;
+}
+
+
+
+
+
+.name-level-container {
+  display: flex; /* Use flexbox */
+  justify-content: space-between; /* Space items evenly */
+}
+
+.name-block {
+  margin-top: 71px;
+  margin-left: 102px; /* Adjust margin to move the name block upwards */
+}
+
+.level-block {
+  margin-right: 600px;
+  margin-top: -8px;
+}
+
+.artist-block {
+  margin-top: 46px; /* Adjust the top margin as needed */
+  margin-left: 142px; /* Adjust the left margin as needed */
+}
+
+.artist-block ul {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.artist-block ul li {
+  margin-bottom: -8px; /* Adjust the bottom margin as needed */
+}
+
+.top-genre {
+  margin-bottom: 100px; /* Adjust the top margin as needed */
+  margin-left: 990px; /* Adjust the left margin as needed */
+  margin-top: 105px; /* Adjust the top margin as needed */
+
+}
+
+
+.top-genre ul {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.logout-btn {
+  display: flex;
+  padding: 10px 40px;
+  background-color: #007bff00; /* Button color */
+  color: #ffffff00; /* Text color */
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/*.logout-btn:hover {
+  background-color: #0056b3; Button color on hover 
+} */
+
+.logout-container {
+  position: fixed;
+  bottom: 5px; /* Adjust this value to move the button up or down */
+  right: 350px; /* Adjust this value to move the button to the left or right */
+  z-index: 999; /* Ensure the button appears on top of other content */
+}
+
+.login-text {
+  display: flex;
+  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+  color: white; /* Set text color to blue (you can adjust this to match your design) */
+  font-size: 100px;
+
+}
+
+/* .login-text:hover {
+  color: #0056b3; Change text color on hover } */
+
+#login-button {
+  margin-top: 455px; /* Adjust the top margin to move the text downwards */
+  margin-left: 600px; /* Adjust the left margin to move the text to the right */
+}
+
+.hidden {
+  display: none;
+}
+
+#about-btn {
+display: flex;
+cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+color: white; /* Set text color to blue (you can adjust this to match your design) */
+font-size: 100px;
+margin-top: -10px; /* Adjust the top margin to move the text downwards */
+margin-left: 790px; /* Adjust the left margin to move the text to the right */
+}
+
+#overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: none;
+}
+
+#about-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#about-image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+#back-btn {
+  position: absolute;
+  top: 833px;
+  left: 260px;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+  font-size: 66px;
 }
