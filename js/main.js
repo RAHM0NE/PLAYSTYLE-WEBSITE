@@ -25,24 +25,57 @@
         "Other": 0
       };
 
-      audioFeatures.forEach(function(feature) {
-        // Classify tracks based on audio features
-        if (feature.danceability > 0.5 && feature.energy > 0.5) {
-          genreCounts["Pop"]++;
-        } else if (feature.energy > 0.7) {
-          genreCounts["Rock"]++;
-        } else if (feature.energy > 0.5 && feature.danceability < 0.5) {
-          genreCounts["Hip-Hop"]++;
-        } else if (feature.energy < 0.5 && feature.acousticness > 0.7) {
-          genreCounts["Classical"]++;
-        } else if (feature.energy < 0.5 && feature.instrumentalness > 0.7) {
-          genreCounts["Electronic"]++;
-        } else if (feature.energy < 0.5 && feature.instrumentalness < 0.7 && feature.acousticness < 0.3) {
-          genreCounts["Jazz"]++;
-        } else {
-          genreCounts["Other"]++;
-        }
-      });
+audioFeatures.forEach(function(feature) {
+    // Classify tracks based on audio features
+    if (feature.danceability > 0.5 && feature.energy > 0.5) {
+        genreCounts["Pop"]++;
+    } else if (feature.energy > 0.7) {
+        genreCounts["Rock"]++;
+    } else if (feature.energy > 0.5 && feature.danceability < 0.5) {
+        genreCounts["Hip-Hop"]++;
+    } else if (feature.energy < 0.5 && feature.acousticness > 0.7) {
+        genreCounts["Classical"]++;
+    } else if (feature.energy < 0.5 && feature.instrumentalness > 0.7) {
+        genreCounts["Electronic"]++;
+    } else if (feature.energy < 0.5 && feature.instrumentalness < 0.7 && feature.acousticness < 0.3) {
+        genreCounts["Jazz"]++;
+    } else if (feature.danceability > 0.7 && feature.energy > 0.7) {
+        genreCounts["Metal"]++;
+    } else if (feature.energy > 0.8 && feature.acousticness < 0.2) {
+        genreCounts["Punk"]++;
+    } else if (feature.danceability > 0.7 && feature.energy > 0.6 && feature.valence > 0.5) {
+        genreCounts["Funk"]++;
+    } else if (feature.danceability > 0.7 && feature.energy > 0.7 && feature.valence > 0.7) {
+        genreCounts["Disco"]++;
+    } else if (feature.energy > 0.8 && feature.valence > 0.7) {
+        genreCounts["Techno"]++;
+    } else if (feature.energy > 0.7 && feature.valence > 0.6) {
+        genreCounts["House"]++;
+    } else if (feature.energy > 0.5 && feature.valence < 0.5) {
+        genreCounts["R&B"]++;
+    } else if (feature.energy > 0.6 && feature.valence > 0.6) {
+        genreCounts["Reggae"]++;
+    } else if (feature.danceability > 0.6 && feature.energy > 0.5 && feature.valence > 0.6) {
+        genreCounts["Soul"]++;
+    } else if (feature.energy > 0.7 && feature.valence > 0.5) {
+        genreCounts["Country"]++;
+    } else if (feature.danceability > 0.5 && feature.energy > 0.5 && feature.valence > 0.5) {
+        genreCounts["Indie"]++;
+    } else if (feature.energy > 0.7 && feature.valence > 0.6) {
+        genreCounts["Alternative"]++;
+    } else if (feature.energy > 0.7 && feature.valence < 0.4) {
+        genreCounts["Gothic"]++;
+    } else if (feature.energy > 0.6 && feature.valence < 0.3) {
+        genreCounts["Industrial"]++;
+    } else if (feature.danceability > 0.5 && feature.valence > 0.5) {
+        genreCounts["Dance"]++;
+    } else if (feature.danceability > 0.5 && feature.valence < 0.4) {
+        genreCounts["Trance"]++;
+    } else {
+        genreCounts["Other"]++;
+    }
+});
+
 
       // Find the genre with the highest count
       var topGenre = Object.keys(genreCounts).reduce(function(a, b) {
@@ -202,24 +235,34 @@
 
 })();
 
+
+// ABOUT BUTTON BRINGING UP MENU
+
+document.addEventListener("DOMContentLoaded", function() {
+  var aboutButton = document.getElementById("about-btn");
+  var overlay = document.getElementById("overlay");
+  var imageContainer = document.getElementById("about-image-container");
+
+  console.log(overlay);
+  console.log(imageContainer);
+
+  aboutButton.addEventListener("click", function() {
+    overlay.style.display = "block";
+    imageContainer.style.display = "flex";
+  });
+
+  overlay.addEventListener("click", function() {
+    overlay.style.display = "none";
+    imageContainer.style.display = "none";
+  });
+});
+
 document.addEventListener("DOMContentLoaded", function() {
   var aboutButton = document.getElementById("about-btn");
   var overlay = document.getElementById("overlay");
   var imageContainer = document.getElementById("about-image-container");
   var backButton = document.getElementById("back-btn");
   var buttonSound = document.getElementById("button-sound");
-  
-
-  document.addEventListener("DOMContentLoaded", function() {
-    var prevButton = document.getElementById("prevButton");
-    var nextButton = document.getElementById("nextButton");
-    var buttonSounds = document.getElementById("button-sounds");
-  });
-  
-
-  
-});
-
 
   // Event listener for opening the image container
   aboutButton.addEventListener("click", function() {
@@ -234,11 +277,10 @@ document.addEventListener("DOMContentLoaded", function() {
     imageContainer.style.display = "none";
     buttonSound.play();
   });
+});
 
 
-
-
-
+// TRYING TO GET HOVER TO WORK 
 
 document.addEventListener("DOMContentLoaded", function() {
   var acstFeature = document.querySelector("#audio-features-container .feature-name");
@@ -262,6 +304,10 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
+
+
+// STAT SELECTOR
+
 document.addEventListener("DOMContentLoaded", function() {
   // Array of image URLs
   var images = [
@@ -281,6 +327,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var prevButton = document.getElementById("prevButton");
   var nextButton = document.getElementById("nextButton");
 
+
   // Function to update the overlay image
   function updateOverlayImage() {
       overlayImage.src = images[currentImageIndex];
@@ -299,5 +346,26 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+
+
+// STAT SELECTOR SOUND
+
+document.addEventListener("DOMContentLoaded", function() {
+  var prevButton = document.getElementById("prevButton");
+  var nextButton = document.getElementById("nextButton");
+  var buttonSounds = document.getElementById("button-sounds");
+  var buttonSoundz = document.getElementById("button-soundz");
+
+
+  // Event listener for the previous button
+  prevButton.addEventListener("click", function() {
+    buttonSounds.play(); // Play the button sound
+  });
+
+  // Event listener for the next button
+  nextButton.addEventListener("click", function() {
+    buttonSoundz.play(); // Play the button sound
+  });
+});
 
 
