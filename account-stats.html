@@ -33,6 +33,23 @@
       </div>
     </div>
 
+    <audio id="button-sounds">
+      <source src="(Audio) ff select copy.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Overlay container -->
+    <div class="overlay">
+      <!-- Image -->
+      <img id="overlayImage" src="stats/0.png" alt="Overlay Image">
+    <!-- Navigation buttons -->
+    <div class="navigation-buttons">
+      <img id="prevButton" src="stats/LEFT.png" alt="Previous">
+      <img id="nextButton" src="stats/RIGHT.png" alt="Next">
+    </div>
+  </div>
+</div>
+
         <!-- Display top 5 artists -->
         <div class="artist-block">
         <ul data-bind="foreach: artists">
@@ -48,16 +65,42 @@
     </div>
     
       
+<!-- Display audio features -->
+<div id="audio-features-container" data-bind="if: audioFeatures">
+  <ul data-bind="with: audioFeatures()[0]">
+    <li><span class="feature-name">ACST.</span> <span class="feature-value" data-bind="text: acousticness"></span></li>
+    <li><span class="feature-name">DNC.</span> <span class="feature-value" data-bind="text: danceability"></span></li>
+    <li><span class="feature-name">INST.</span> <span class="feature-value" data-bind="text: instrumentalness"></span></li>
+    <li><span class="feature-name">LIV.</span> <span class="feature-value" data-bind="text: liveness"></span></li>
+    <li><span class="feature-name">NRG</span> <span class="feature-value" data-bind="text: energy"></span></li>
+    <li><span class="feature-name">TEMPO </span> <span class="feature-value" data-bind="text: tempo"></span></li>
+  </ul>
+</div>
+
+ <!-- Hover text for more info -->
+ <div class="hover-info">
+  HOVER YOUR STATS <span class="info-line">FOR MORE INFO!</span>
+</div>
+
+<!-- Image container -->
+<div id="image-container">
+  <!-- Add your image here -->
+  <img src="stats/ACST.png" alt="Image">
+</div>
 
       
-
        <!-- Logout button -->
     <div class="logout-container">
       <span id="logout-button" class="logout-btn" data-bind="click: logout">LOGOUT</span>
     </div>
   </div>
-</body>
 
+  <div id="overlay-container">
+    <!-- Image will be inserted here -->
+</div>
+
+<!-- Overlay -->
+<div id="overlay"></div>
 
 
 
@@ -65,10 +108,10 @@
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap core JavaScript -->
   <!-- This file would be available as a vendor dependency in your local project if you're using Bower or Composer -->
+  <script src="js/main.js" defer></script>
   <script src="bower_components/knockout/dist/knockout.js"></script>
   <script src="bower_components/spotify-web-api-js/src/spotify-web-api.js"></script>
   <script src="js/oauth-config.js"></script>
   <script src="js/oauth-manager.js"></script>
-  <script src="js/main.js"></script>
 </body>
 </html>

@@ -110,7 +110,7 @@ p {
 .top-genre {
   margin-bottom: 100px; /* Adjust the top margin as needed */
   margin-left: 990px; /* Adjust the left margin as needed */
-  margin-top: 105px; /* Adjust the top margin as needed */
+  margin-top: 97px; /* Adjust the top margin as needed */
 
 }
 
@@ -121,8 +121,154 @@ p {
 }
 
 
+#audio-features-container {
+  position: relative;
+  top: -203px; /* Adjust as needed */
+  left: 540px; /* Adjust as needed */
+  margin: 0;
+  padding: 0;
+
+  font-size:45px; 
+}
+
+#audio-features-container ul li {
+  line-height: 0.8; /* Adjust as needed */
+}
 
 
+
+
+
+.feature-name {
+  display: inline-block; /* Ensure each feature name and value pair is on the same line */
+  width: 220px; /* Adjust the width as needed */
+
+}
+
+.feature-value {
+  display: inline-block;
+  width: calc(100% - 1800px);
+  text-align: right; /* Explicitly set text-align to right */
+}
+
+
+/* Custom CSS to position hover text */
+.hover-info {
+  position: absolute;
+  top: 34%;
+  left: 58.5%;
+  transform: translate(-50%, -50%);
+  font-size: 40px; /* Adjust the font size as needed */
+  text-align: center; /* Center the text horizontally */
+  width: 100%; /* Set width to 100% for centering */
+  line-height: 0.7; /* Adjust the line-height as needed */
+}
+
+.info-line {
+  display: block; /* Display the span as a block-level element */
+}
+
+#overlay {
+  position: fixed; /* Position fixed instead of absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: none;
+}
+
+#image-container {
+  position: fixed; /* Position fixed instead of absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* Ensure it's above the overlay */
+}
+
+#image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.top-genre {
+  position: absolute;
+  left: -720px; /* Adjust this value as needed */
+  top: 384px; /* Adjust this value as needed */
+  width: 920px; /* Adjust the width as needed */
+  text-align: right; /* Align the text to the right side of the container */
+
+}
+
+/* Ensure the body has relative positioning */
+body {
+    position: relative;
+}
+
+/* Style for the overlay container */
+.overlay {
+    position: absolute;
+    top: 170px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999; /* Ensure the overlay appears above other content */
+}
+
+/* Style for the overlay image */
+.overlay img {
+    display: block;
+    width: 100%; /* Adjust as needed */
+    height: 100%; /* Adjust as needed */
+    object-fit: cover; /* Ensure the image covers the container */
+}
+
+
+ /* CSS for overlay container */
+ .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+}
+
+
+/* CSS for navigation buttons */
+.navigation-buttons {
+  position: absolute;
+  bottom: 625px; /* Adjust the distance from the bottom as needed */
+  left: 53.4%;
+}
+
+/* CSS for navigation buttons */
+.navigation-buttons {
+  position: absolute;
+  bottom: 688px; /* Adjust the distance from the bottom as needed */
+  left: 58.4%;
+  transform: translateX(-50%);
+  display: flex; /* Use flexbox to arrange buttons horizontally */
+  justify-content: center; /* Center the buttons horizontally */
+  align-items: center; /* Center the buttons vertically */
+}
+
+.navigation-buttons img {
+  margin: 0 70px; /* Adjust the spacing between buttons as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
+#audio-element {
+  display: none;
+}
 
 
 
