@@ -18,6 +18,16 @@
   </style>
 </head>
 <body class="account-stats">
+
+  <!-- Video container -->
+  <div id="video-containerz">
+    <video id="background-video" preload="auto">
+      <source src="VIDEOS/PLAYSTYLE CHARACTER SELECT.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+
   <div class="container">
     <div class="name-level-container">
       <div class="name-block">
@@ -82,6 +92,15 @@
   </ul>
 </div>
 
+<div id="weapon-image-container" style="display: none;">
+  <img id="weaponImage" src="" alt="Weapon Image">
+</div>
+
+<div id="character-image-container" style="display: none;">
+  <img id="characterImage" src="" alt="Character Image">
+</div>
+
+
  <!-- Hover text for more info -->
  <div class="hover-info">
   HOVER YOUR STATS <span class="info-line">FOR MORE INFO!</span>
@@ -114,6 +133,38 @@
 
 <!-- Overlay -->
 <div id="overlay"></div>
+
+ <!-- JavaScript to control video playback -->
+ <script>
+  // Function to play video and fade it out when finished
+  function playVideoAndFadeOut() {
+    var video = document.getElementById('background-video');
+
+    // Play the video
+    video.play()
+      .then(function() {
+        console.log('Video playback started successfully.');
+        
+        // Add event listener for video ended
+        video.addEventListener('ended', function() {
+          console.log('Video playback ended.');
+          
+          // Fade out the video
+          $(video).fadeOut(1000, function() {
+            console.log('Video faded out.');
+            // Once faded out, remove the video element from the DOM
+            $(video).remove();
+          });
+        });
+      })
+      .catch(function(error) {
+        console.error('Failed to start video playback:', error);
+      });
+  }
+
+  // Call the function to play video and fade it out
+  playVideoAndFadeOut();
+</script>
 
 
 

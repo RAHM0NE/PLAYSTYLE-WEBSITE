@@ -24,6 +24,11 @@
 }
 
 body {
+  overflow: hidden; /* Prevent scrolling */
+}
+
+
+body {
   background-image: url('TITLE SCREEN.png');
   background-size: cover;
   background-repeat: no-repeat;
@@ -33,7 +38,13 @@ body.account-stats {
   background-image: url('RESULTS SCREEN.png');
   background-size: cover;
   background-repeat: no-repeat;
+  height: 100vh; /* Set viewport height */
+  background-position: center; /* Center the background image */
+  background-attachment: fixed; /* Keep the background image fixed */
+
+
 }
+
 
 body {
   color: white; /* Set the color of the text to white */
@@ -74,6 +85,32 @@ p {
   font-size: 72px;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+   z-index: -1;
+}
+
+#background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire container */
+}
+
+/* Add additional styles for other content as needed */
 
 
 
@@ -84,13 +121,13 @@ p {
 }
 
 .name-block {
-  margin-top: 71px;
+  margin-top: 74px;
   margin-left: 102px; /* Adjust margin to move the name block upwards */
 }
 
 .level-block {
-  margin-right: 600px;
-  margin-top: -8px;
+  margin-right: 610px;
+  margin-top: -4px;
 }
 
 .artist-block {
@@ -109,8 +146,8 @@ p {
 
 .top-genre {
   margin-bottom: 100px; /* Adjust the top margin as needed */
-  margin-left: 990px; /* Adjust the left margin as needed */
-  margin-top: 97px; /* Adjust the top margin as needed */
+  margin-left: 986px; /* Adjust the left margin as needed */
+  margin-top: 94px; /* Adjust the top margin as needed */
 
 }
 
@@ -124,7 +161,7 @@ p {
 #audio-features-container {
   position: relative;
   top: -203px; /* Adjust as needed */
-  left: 540px; /* Adjust as needed */
+  left: 550px; /* Adjust as needed */
   margin: 0;
   padding: 0;
 
@@ -200,7 +237,7 @@ p {
 .top-genre {
   position: absolute;
   left: -720px; /* Adjust this value as needed */
-  top: 384px; /* Adjust this value as needed */
+  top: 390px; /* Adjust this value as needed */
   width: 920px; /* Adjust the width as needed */
   text-align: right; /* Align the text to the right side of the container */
 
@@ -224,7 +261,7 @@ body {
 /* Style for the overlay image */
 .overlay img {
     display: block;
-    width: 100%; /* Adjust as needed */
+    width: 99.7%; /* Adjust as needed */
     height: 100%; /* Adjust as needed */
     object-fit: cover; /* Ensure the image covers the container */
 }
@@ -253,7 +290,7 @@ body {
 .navigation-buttons {
   position: absolute;
   bottom: 688px; /* Adjust the distance from the bottom as needed */
-  left: 58.4%;
+  left: 58.2%;
   transform: translateX(-50%);
   display: flex; /* Use flexbox to arrange buttons horizontally */
   justify-content: center; /* Center the buttons horizontally */
@@ -261,7 +298,7 @@ body {
 }
 
 .navigation-buttons img {
-  margin: 0 70px; /* Adjust the spacing between buttons as needed */
+  margin: 0 60px; /* Adjust the spacing between buttons as needed */
   height: auto; /* Maintain aspect ratio */
 }
 
@@ -269,6 +306,47 @@ body {
 #audio-element {
   display: none;
 }
+
+
+#weapon-image-container {
+  position: fixed;
+  top: 778px; /* Adjust the top position to move the weapons upwards */
+  left: 33.7%;
+  transform: translateX(-50%);
+  z-index: 10000;
+}
+
+
+
+#character-image-container {
+  position: fixed;
+  top: 68px; /* Adjust the top position to move the weapons upwards */
+  left: 80.2%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  max-width: 450px;
+  max-height: 700px;
+}
+
+
+
+/* CSS for character image */
+#characterImage {
+  /* Set the maximum width and height of the image */
+  max-width: 130%;
+  max-height: 130%;
+}
+
+#video-containerz {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 99999; /* Set a high z-index to ensure the video appears on top */
+}
+
 
 
 
@@ -336,7 +414,7 @@ margin-left: 800px; /* Adjust the left margin to move the text to the right */
 
 #about-image-container {
   position: absolute;
-  top: 0;
+  top: -467px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -348,7 +426,7 @@ margin-left: 800px; /* Adjust the left margin to move the text to the right */
 
 #back-btn {
   position: absolute !important; /* Ensure the position is absolute */
-  top: 450px !important; /* Adjust the top position */
+  top: 860px !important; /* Adjust the top position */
   left: 220px !important; /* Adjust the left position */
   color: white !important; /* Set text color */
   cursor: pointer !important; /* Set cursor */
