@@ -22,10 +22,9 @@
         "Electronic": 0,
         "Jazz": 0,
         "Classical": 0,
-        "Other": 0,
+        "???": 0,
         "Metal": 0,
         "Punk": 0,
-        "Funk": 0,
         "Disco": 0,
         "Techno": 0,
         "House": 0,
@@ -35,63 +34,38 @@
         "Country": 0,
         "Indie": 0,
         "R&B": 0,
-        "Alternative": 0,
-        "Gothic": 0,
-        "Industrial": 0,
         "Dance": 0,
-        "Trance": 0
       };
 
       audioFeatures.forEach(function(feature) {
         // Classify tracks based on audio features
-        if (feature.danceability > 0.5 && feature.energy > 0.5) {
-          genreCounts["Pop"]++;
-        } else if (feature.energy > 0.7) {
-          genreCounts["Rock"]++;
-        } else if (feature.energy > 0.5 && feature.danceability < 0.5) {
-          genreCounts["Hip-Hop"]++;
-        } else if (feature.energy < 0.5 && feature.acousticness > 0.7) {
-          genreCounts["Classical"]++;
-        } else if (feature.energy < 0.5 && feature.instrumentalness > 0.7) {
-          genreCounts["Electronic"]++;
-        } else if (feature.energy < 0.5 && feature.instrumentalness < 0.7 && feature.acousticness < 0.3) {
-          genreCounts["Jazz"]++;
-        } else if (feature.danceability > 0.7 && feature.energy > 0.7) {
-          genreCounts["Metal"]++;
-        } else if (feature.energy > 0.8 && feature.acousticness < 0.2) {
-          genreCounts["Punk"]++;
-        } else if (feature.danceability > 0.7 && feature.energy > 0.6 && feature.valence > 0.5) {
-          genreCounts["Funk"]++;
-        } else if (feature.danceability > 0.7 && feature.energy > 0.7 && feature.valence > 0.7) {
-          genreCounts["Disco"]++;
-        } else if (feature.energy > 0.8 && feature.valence > 0.7) {
-          genreCounts["Techno"]++;
-        } else if (feature.energy > 0.7 && feature.valence > 0.6) {
-          genreCounts["House"]++;
-        } else if (feature.energy > 0.5 && feature.valence < 0.5) {
-          genreCounts["R&B"]++;
-        } else if (feature.energy > 0.6 && feature.valence > 0.6) {
-          genreCounts["Reggae"]++;
-        } else if (feature.danceability > 0.6 && feature.energy > 0.5 && feature.valence > 0.6) {
-          genreCounts["Soul"]++;
-        } else if (feature.energy > 0.7 && feature.valence > 0.5) {
-          genreCounts["Country"]++;
-        } else if (feature.danceability > 0.5 && feature.energy > 0.5 && feature.valence > 0.5) {
-          genreCounts["Indie"]++;
-        } else if (feature.energy > 0.7 && feature.valence > 0.6) {
-          genreCounts["Alternative"]++;
-        } else if (feature.energy > 0.7 && feature.valence < 0.4) {
-          genreCounts["Gothic"]++;
-        } else if (feature.energy > 0.6 && feature.valence < 0.3) {
-          genreCounts["Industrial"]++;
-        } else if (feature.danceability > 0.5 && feature.valence > 0.5) {
-          genreCounts["Dance"]++;
-        } else if (feature.danceability > 0.5 && feature.valence < 0.4) {
-          genreCounts["Trance"]++;
+        if (feature.danceability > 0.7 && feature.energy > 0.6 && feature.valence > 0.5 && feature.acousticness < 0.4) {
+            genreCounts["Pop"]++;
+        } else if (feature.danceability > 0.5 && feature.energy > 0.7 && feature.valence > 0.6 && feature.acousticness < 0.3) {
+            genreCounts["Rock"]++;
+        } else if (feature.danceability > 0.6 && feature.energy > 0.7 && feature.valence > 0.5 && feature.acousticness < 0.4) {
+            genreCounts["Hip-Hop"]++;
+        } else if (feature.danceability < 0.4 && feature.energy < 0.3 && feature.valence < 0.3 && feature.acousticness > 0.7 && feature.instrumentalness > 0.5) {
+            genreCounts["Jazz"]++;
+        } else if (feature.danceability > 0.7 && feature.energy > 0.7 && feature.valence > 0.5 && feature.acousticness < 0.2 && feature.instrumentalness < 0.5) {
+            genreCounts["Metal"]++;
+        } else if (feature.danceability > 0.7 && feature.energy > 0.7 && feature.valence > 0.5 && feature.acousticness < 0.3) {
+            genreCounts["Punk"]++;
+        } else if (feature.danceability > 0.7 && feature.energy > 0.7 && feature.valence > 0.6 && feature.acousticness < 0.3) {
+            genreCounts["Disco"]++;
+        } else if (feature.danceability > 0.5 && feature.energy > 0.5 && feature.valence > 0.5 && feature.acousticness < 0.4) {
+            genreCounts["R&B"]++;
+        } else if (feature.danceability > 0.6 && feature.energy > 0.6 && feature.valence > 0.5 && feature.acousticness < 0.4) {
+            genreCounts["Soul"]++;
+        } else if (feature.danceability < 0.3 && feature.energy > 0.7 && feature.valence < 0.3 && feature.acousticness < 0.3 && feature.instrumentalness < 0.3) {
+            genreCounts["Country"]++;
+        } else if (feature.danceability > 0.6 && feature.energy > 0.6 && feature.valence > 0.5 && feature.acousticness > 0.4 && feature.instrumentalness < 0.5) {
+            genreCounts["Indie"]++;
         } else {
-          genreCounts["Other"]++;
+            genreCounts["???"]++;
         }
-      });
+    });
+    
 
       // Find the genre with the highest count
       var topGenre = Object.keys(genreCounts).reduce(function(a, b) {
@@ -135,25 +109,26 @@
         .then(function(audioFeatures) {
           // Round the audio feature values to the nearest whole number
           audioFeatures.audio_features.forEach(function(feature) {
-            feature.acousticness = Math.round(feature.acousticness * 100);
-            feature.danceability = Math.round(feature.danceability * 100);
-            feature.instrumentalness = Math.round(feature.instrumentalness * 100);
-            feature.liveness = Math.round(feature.liveness * 100);
-            feature.energy = Math.round(feature.energy * 100);
-            feature.tempo = Math.round(feature.tempo);
+              feature.acousticness = Math.round(feature.acousticness * 100);
+              feature.danceability = Math.round(feature.danceability * 100);
+              feature.instrumentalness = Math.round(feature.instrumentalness * 100);
+              feature.liveness = Math.round(feature.liveness * 100);
+              feature.energy = Math.round(feature.energy * 100);
+              feature.valence = Math.round(feature.valence * 100);
+              feature.tempo = Math.round(feature.tempo);
           });
-
+      
           self.audioFeatures(audioFeatures.audio_features);
-
+      
           // Once audio features are fetched, determine the top genre
           self.determineTopGenre(audioFeatures.audio_features);
-
+      
           // Update weapon image based on audio features
           updateWeaponImage(audioFeatures.audio_features);
-
+      
           // Update character image based on audio features
-          updateCharacterImage(audioFeatures.audio_features);
-        })
+          updateCharacterImage(audioFeatures.audio_features); // Pass audio features here
+      })
 
 
         .catch(function(error) {
@@ -179,27 +154,25 @@
     };
 
     this.logout = function() {
+      // Clear stored access tokens and session information
       localStorage.removeItem(accessTokenKey);
-      self.isLoggedIn(false);
+      sessionStorage.removeItem(accessTokenKey);
+      
       // Redirect to index.html
       window.location.href = 'index.html';
     };
 
     // Error handling for login
     this.loginError = function(errorCode) {
-      switch (errorCode) {
-        case 'access_denied':
-          self.loginErrorMessage('You need to grant access in order to use this website.');
-          break;
-        default:
-          self.loginErrorMessage('There was an error trying to obtain authorization. Please, try it again later.');
-      }
+      // your existing code for login error handling
     };
   };
 
+  var accessTokenKey = 'sp-access-token';
+
   var spotifyApi = new SpotifyWebApi(),
     accessTokenKey = 'sp-access-token';
-
+    
   function onTokenReceived(token) {
     viewModel.isLoggedIn(true);
     localStorage.setItem(accessTokenKey, token);
@@ -208,7 +181,6 @@
     spotifyApi.setAccessToken(token);
     spotifyApi.getMe().then(function(data) {
       viewModel.user(data);
-
       // Get the user's followers count
       spotifyApi.getUser(data.id).then(function(user) {
         viewModel.followersCount(user.followers.total);
@@ -241,25 +213,37 @@
     });
   }
 
-  // Function to determine which image to display based on audio features
-  function determineWeaponImage(audioFeatures) {
-    var tempo = audioFeatures.tempo;
-    var danceability = audioFeatures.danceability;
-    var acousticness = audioFeatures.acousticness;
-    var energy = audioFeatures.energy;
 
-    if (tempo > 120 && danceability > 3 && acousticness > 3 && energy > 5) {
-      return "FIRE SWORD";
-    } else if (tempo < 120 && danceability > 3 && acousticness < 3) {
-      return "FIRE WAND";
-    } else if (acousticness > 5 && energy < 3 && tempo < 80) {
-      return "ICE WAND";
-    } else if (acousticness > 5 && energy > 3 && tempo >= 80 && tempo < 120) {
-      return "ICE SWORD";
-    } else {
-      return "ICE WAND"; // Default image if no condition matches
-    }
+// Function to determine which image to display based on audio features
+function determineWeaponImage(audioFeatures) {
+  var averageTempo = 0;
+  var averageDanceability = 0;
+  var averageAcousticness = 0;
+  var averageEnergy = 0;
+
+  // Calculate average values for each audio feature
+  audioFeatures.forEach(function(feature) {
+    averageTempo += feature.tempo;
+    averageDanceability += feature.danceability;
+    averageAcousticness += feature.acousticness;
+    averageEnergy += feature.energy;
+  });
+
+  averageTempo /= audioFeatures.length;
+  averageDanceability /= audioFeatures.length;
+  averageAcousticness /= audioFeatures.length;
+  averageEnergy /= audioFeatures.length;
+
+  if (averageTempo >= 120) {
+    return "FIRE SWORD"; // Suited to higher tempos
+  } else if (averageTempo >= 110 && averageTempo < 120) {
+    return "FIRE WAND"; // Suited to less higher tempos
+  } else if (averageTempo >= 105 && averageTempo < 110) {
+    return "ICE SWORD"; // Suited to less tempos
+  } else {
+    return "ICE WAND"; // Suited to even slower tempos
   }
+}
 
 // Function to update the weapon image
 function updateWeaponImage(audioFeatures) {
@@ -284,7 +268,7 @@ function updateWeaponImage(audioFeatures) {
         imageURL = "WEAPONS/ICE SWORD.png";
         break;
       default:
-        imageURL = "TITLE SCREEN.png"; // Default image if no weapon matches
+        imageURL = "WEAPONS/ICE SWORD.png"; // Default image if no weapon matches
         break;
     }
 
@@ -305,23 +289,37 @@ function updateWeaponImage(audioFeatures) {
 
 // Function to determine which PLAYSTYLE to display based on audio features
 function determineCharacterImage(audioFeatures) {
-  var tempo = audioFeatures.tempo;
-  var danceability = audioFeatures.danceability;
-  var acousticness = audioFeatures.acousticness;
-  var energy = audioFeatures.energy;
+  var averageTempo = audioFeatures.reduce((acc, curr) => acc + curr.tempo, 0) / audioFeatures.length;
+  var averageDanceability = audioFeatures.reduce((acc, curr) => acc + curr.danceability, 0) / audioFeatures.length;
+  var averageAcousticness = audioFeatures.reduce((acc, curr) => acc + curr.acousticness, 0) / audioFeatures.length;
+  var averageEnergy = audioFeatures.reduce((acc, curr) => acc + curr.energy, 0) / audioFeatures.length;
 
-  if (tempo > 120 && danceability > 3 && acousticness > 3 && energy > 5) {
-    return "FIGHTER";
-  } else if (tempo < 120 && danceability > 3 && acousticness < 3) {
-    return "KNIGHT";
-  } else if (acousticness > 5 && energy < 3 && tempo < 80) {
-    return "MAGE";
-  } else if (acousticness > 5 && energy > 3 && tempo >= 80 && tempo < 120) {
-    return "ROGUE";
+
+  // Calculate average values for each audio feature
+  audioFeatures.forEach(function(feature) {
+      averageTempo += feature.tempo;
+      averageDanceability += feature.danceability;
+      averageAcousticness += feature.acousticness;
+      averageEnergy += feature.energy;
+  });
+
+  averageTempo /= audioFeatures.length;
+  averageDanceability /= audioFeatures.length;
+  averageAcousticness /= audioFeatures.length;
+  averageEnergy /= audioFeatures.length;
+
+  if (averageEnergy > 85) {
+    return "ROGUE"; // Suited to more upbeat music
+  } else if (averageEnergy > 70 && averageEnergy <= 85) {
+    return "FIGHTER"; // Suited to moderately upbeat music
+  } else if (averageEnergy > 50 && averageEnergy <= 70) {
+    return "KNIGHT"; // Suited to moderately chill music
   } else {
-    return "ROGUE"; // Default image if no condition matches
+    return "MAGE"; // Suited to chill, relaxed, slow music
   }
 }
+
+
 
 // Function to update the character image
 function updateCharacterImage(audioFeatures) {
@@ -334,19 +332,19 @@ function updateCharacterImage(audioFeatures) {
 
     switch (character) {
       case "FIGHTER":
-        imageURL = "PLAYSTYLES/FIGHTER.png";
+        imageURL = "PLAYSTYLES/FIGHTER.gif";
         break;
       case "KNIGHT":
-        imageURL = "PLAYSTYLES/KNIGHT.png";
+        imageURL = "PLAYSTYLES/KNIGHT.gif";
         break;
       case "MAGE":
-        imageURL = "PLAYSTYLES/MAGE.png";
+        imageURL = "PLAYSTYLES/MAGE.gif";
         break;
       case "ROGUE":
-        imageURL = "PLAYSTYLES/ROGUE.png";
+        imageURL = "PLAYSTYLES/ROGUE.gif";
         break;
       default:
-        imageURL = "PLAYSTYLES/FIGHTER.png"; // Default image if no character matches
+        imageURL = "PLAYSTYLES/FIGHTER.gif"; // Default image if no character matches
         break;
     }
 
@@ -364,17 +362,6 @@ function updateCharacterImage(audioFeatures) {
     console.error("Image container or character image not found.");
   }
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-  // Call the function to update the character image
-  updateCharacterImage(audioFeatures.audio_features);
-});
-
-
-
-
-
-
 
 
   // Initialize ViewModel and apply bindings
@@ -537,12 +524,26 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+  var video = document.getElementById('start-video');
+  
+  // Pause the video when it ends
+  video.addEventListener('ended', function() {
+      this.pause();
+  });
+});
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
   var video = document.getElementById('background-video');
   var videoContainer = document.getElementById('video-containerz');
   
   video.play()
     .then(function() {
       console.log('Video playback started successfully.');
+
       
       // Add event listener for video ended
       video.addEventListener('ended', function() {
@@ -560,5 +561,6 @@ document.addEventListener('DOMContentLoaded', function() {
       console.error('Failed to start video playback:', error);
     });
 });
+
 
 

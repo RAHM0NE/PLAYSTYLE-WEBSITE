@@ -59,8 +59,8 @@
       <img id="overlayImage" src="stats/0.png" alt="Overlay Image">
     <!-- Navigation buttons -->
     <div class="navigation-buttons">
-      <img id="prevButton" src="stats/LEFT.png" alt="Previous">
-      <img id="nextButton" src="stats/RIGHT.png" alt="Next">
+      <img id="prevButton" src="stats/LEFT.gif" alt="Previous">
+      <img id="nextButton" src="stats/RIGHT.gif" alt="Next">
     </div>
   </div>
 </div>
@@ -172,6 +172,28 @@
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap core JavaScript -->
   <!-- This file would be available as a vendor dependency in your local project if you're using Bower or Composer -->
+  <script>
+      video.play()
+    .then(function() {
+      console.log('Video playback started successfully.');
+
+      
+      // Add event listener for video ended
+      video.addEventListener('ended', function() {
+        console.log('Video playback ended.');
+        
+        // Fade out the video container
+        $(videoContainer).fadeOut(1000, function() {
+          console.log('Video container faded out.');
+          // Once faded out, hide the video container
+          videoContainer.style.display = 'none';
+        });
+      });
+    })
+    .catch(function(error) {
+      console.error('Failed to start video playback:', error);
+    });
+  </script>
   <script src="js/main.js" defer></script>
   <script src="bower_components/knockout/dist/knockout.js"></script>
   <script src="bower_components/spotify-web-api-js/src/spotify-web-api.js"></script>
