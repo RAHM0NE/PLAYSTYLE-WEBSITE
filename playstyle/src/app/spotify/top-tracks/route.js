@@ -7,7 +7,7 @@ export async function GET(request) {
 
   if ((code = params.get("code"))) {
     const res = await fetch(
-      "https://api.spotify.com/v1/me/top/artists?limit=5",
+      "https://api.spotify.com/v1/me/top/tracks?limit=10",
       {
         method: "GET",
         headers: {
@@ -18,9 +18,10 @@ export async function GET(request) {
 
     const data = await res.json();
 
-    var artists = data.items;
+    var tracks = data.items;
+    console.log(tracks);
 
-    return NextResponse.json({ artists });
+    return NextResponse.json({ tracks });
   }
 
   return NextResponse.json({ error: true });

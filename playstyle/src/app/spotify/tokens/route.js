@@ -14,7 +14,7 @@ export async function GET(request) {
     const bodyParams = new URLSearchParams({
       code,
       grant_type: "authorization_code",
-      redirect_uri: "http://localhost:3000", // Ensure this matches the registered URI
+      redirect_uri: "http://localhost:3000/spotify/callback", // Ensure this matches the registered URI
     });
 
     const res = await fetch("https://accounts.spotify.com/api/token", {
