@@ -15,6 +15,8 @@ function getHashParams() {
   return hashParams;
 }
 
+var accessTokenKey = 'sp-access-token';
+
 var params = getHashParams(),
     accessToken = params.access_token,
     state = params.state,

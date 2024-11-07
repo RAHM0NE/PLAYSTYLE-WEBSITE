@@ -5,10 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PLAYSTYLE</title>
-  <!-- Bootstrap.min.css -->
-  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
   <style>
     /* Custom CSS to remove bullet points */
     ul {
@@ -18,36 +17,187 @@
     }
   </style>
 </head>
-<body>
+<body class="account-stats">
+
+  <!-- Video container -->
+  <div id="video-containerz">
+    <video id="background-video" preload="auto">
+      <source src="VIDEOS/PLAYSTYLE CHARACTER SELECT.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+
   <div class="container">
-    <div class="starter-template">
-      <div id="loggedin">
-        <div data-bind="with: user">
-          <h1> <span data-bind="text: display_name"></span></h1>
-          <img data-bind="attr: {src: images[0].url}">
-          <p>LV <span data-bind="text: $root.followersCount"></span></p> <!-- New line to display follower count -->
+    <div class="name-level-container">
+      <div class="name-block">
+        <div id="loggedin">
+          <div data-bind="with: user">
+            <h1><span data-bind="text: display_name"></span></h1>
+          </div>
         </div>
-        <hr />
-        <h2>Top 5 Artists</h2>
+      </div>
+      <div class="level-block">
+        <p>LV <span data-bind="text: $root.followersCount"></span></p>
+      </div>
+      </div>
+    </div>
+
+    <audio id="button-sounds">
+      <source src="down.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio id="button-soundz">
+      <source src="up.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Overlay container -->
+    <div class="overlay">
+      <!-- Image -->
+      <img id="overlayImage" src="stats/0.png" alt="Overlay Image">
+    <!-- Navigation buttons -->
+    <div class="navigation-buttons">
+      <img id="prevButton" src="stats/LEFT.gif" alt="Previous">
+      <img id="nextButton" src="stats/RIGHT.gif" alt="Next">
+    </div>
+  </div>
+</div>
+
         <!-- Display top 5 artists -->
+        <div class="artist-block">
         <ul data-bind="foreach: artists">
           <li>
             <span data-bind="text: name"></span><br />
           </li>
         </ul>
-        <button id="login-button" class="btn btn-primary" data-bind="click: logout">LOG OUT</button>
       </div>
+
+      
+      <div class="top-genre">
+        <p data-bind="text: topGenre"></p>
     </div>
+    
+      
+<!-- Display audio features -->
+<div id="audio-features-container" data-bind="if: audioFeatures">
+  <ul data-bind="with: audioFeatures()[0]">
+    <li><span class="feature-name">ACST.</span> <span class="feature-value" data-bind="text: acousticness"></span></li>
+    <li><span class="feature-name">DNC.</span> <span class="feature-value" data-bind="text: danceability"></span></li>
+    <li><span class="feature-name">INST.</span> <span class="feature-value" data-bind="text: instrumentalness"></span></li>
+    <li><span class="feature-name">LIV.</span> <span class="feature-value" data-bind="text: liveness"></span></li>
+    <li><span class="feature-name">NRG</span> <span class="feature-value" data-bind="text: energy"></span></li>
+    <li><span class="feature-name">TEMPO </span> <span class="feature-value" data-bind="text: tempo"></span></li>
+  </ul>
+</div>
+
+<div id="weapon-image-container" style="display: none;">
+  <img id="weaponImage" src="" alt="Weapon Image">
+</div>
+
+<div id="character-image-container" style="display: none;">
+  <img id="characterImage" src="" alt="Character Image">
+</div>
+
+
+ <!-- Hover text for more info -->
+ <div class="hover-info">
+  HOVER YOUR STATS <span class="info-line">FOR MORE INFO!</span>
+</div>
+
+<!-- Image container -->
+<div id="image-container">
+  <!-- Add your image here -->
+  <img src="stats/ACST.png" alt="Image">
+</div>
+
+<audio autoplay loop>
+  <source src="Menu Screen.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+      
+       <!-- Logout button -->
+    <div class="logout-container">
+      <span id="logout-button" class="logout-btn" data-bind="click: logout">LOGOUT</span>
+    </div>
+    <audio id="logout-sounds">
+      <source src="end.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
   </div>
+
+  <div id="overlay-container">
+    <!-- Image will be inserted here -->
+</div>
+
+<!-- Overlay -->
+<div id="overlay"></div>
+
+ <!-- JavaScript to control video playback -->
+ <script>
+  // Function to play video and fade it out when finished
+  function playVideoAndFadeOut() {
+    var video = document.getElementById('background-video');
+
+    // Play the video
+    video.play()
+      .then(function() {
+        console.log('Video playback started successfully.');
+        
+        // Add event listener for video ended
+        video.addEventListener('ended', function() {
+          console.log('Video playback ended.');
+          
+          // Fade out the video
+          $(video).fadeOut(1000, function() {
+            console.log('Video faded out.');
+            // Once faded out, remove the video element from the DOM
+            $(video).remove();
+          });
+        });
+      })
+      .catch(function(error) {
+        console.error('Failed to start video playback:', error);
+      });
+  }
+
+  // Call the function to play video and fade it out
+  playVideoAndFadeOut();
+</script>
+
+
+
   <!-- jQuery required for Bootstrap core JavaScript -->
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap core JavaScript -->
   <!-- This file would be available as a vendor dependency in your local project if you're using Bower or Composer -->
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script>
+      video.play()
+    .then(function() {
+      console.log('Video playback started successfully.');
+
+      
+      // Add event listener for video ended
+      video.addEventListener('ended', function() {
+        console.log('Video playback ended.');
+        
+        // Fade out the video container
+        $(videoContainer).fadeOut(1000, function() {
+          console.log('Video container faded out.');
+          // Once faded out, hide the video container
+          videoContainer.style.display = 'none';
+        });
+      });
+    })
+    .catch(function(error) {
+      console.error('Failed to start video playback:', error);
+    });
+  </script>
+  <script src="js/main.js" defer></script>
   <script src="bower_components/knockout/dist/knockout.js"></script>
   <script src="bower_components/spotify-web-api-js/src/spotify-web-api.js"></script>
   <script src="js/oauth-config.js"></script>
   <script src="js/oauth-manager.js"></script>
-  <script src="js/main.js"></script>
 </body>
 </html>

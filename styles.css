@@ -7,9 +7,6 @@
   text-align: center;
 }
 
-#login-button {
-  margin: 30px;
-}
 
 #loggedin img {
   margin: 0 auto;
@@ -27,7 +24,424 @@
 }
 
 body {
-  background-image: url('TITLE SCREEN.png'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
-  background-size: cover; /* This ensures that the background image covers the entire viewport */
-  background-repeat: no-repeat; /* This prevents the background image from repeating */
+  overflow: hidden; /* Prevent scrolling */
+}
+
+
+body {
+  background-image: url('TITLE SCREEN.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+body.account-stats {
+  background-image: url('RESULTS SCREEN.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh; /* Set viewport height */
+  background-position: center; /* Center the background image */
+  background-attachment: fixed; /* Keep the background image fixed */
+
+
+}
+
+
+body {
+  color: white; /* Set the color of the text to white */
+}
+
+/* Additional styling for specific elements if needed */
+h1, h2, h3, h4, h5, h6 {
+  color: white; /* Set the color of headings to white */
+}
+
+p {
+  color: white; /* Set the color of paragraphs to white */
+}
+
+@font-face {
+  font-family: 'FFIV';
+  src: url('FFIV.TTF') format('truetype');
+}
+
+@font-face {
+  font-family: 'RETRO';
+  src: url('Retro Gaming.ttf') format('truetype');
+}
+
+
+body {
+  font-family: "FFIV"; /* Set the font family for the entire page */
+  font-size: 50px;
+}
+
+/* Additional styling for specific elements if needed */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "RETRO", regular; /* Set the font family for headings, NAME */
+  font-size: 27px;
+}
+
+p {
+  font-family: "FFIV"; /* Set the font family for paragraphs */
+  font-size: 72px;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+   z-index: -1;
+}
+
+#start-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire container */
+}
+
+#background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire container */
+}
+
+
+
+/* Add additional styles for other content as needed */
+
+
+
+
+.name-level-container {
+  display: flex; /* Use flexbox */
+  justify-content: space-between; /* Space items evenly */
+}
+
+.name-block {
+  margin-top: 74px;
+  margin-left: 102px; /* Adjust margin to move the name block upwards */
+}
+
+.level-block {
+  margin-right: 610px;
+  margin-top: -4px;
+}
+
+.artist-block {
+  margin-top: 46px; /* Adjust the top margin as needed */
+  margin-left: 142px; /* Adjust the left margin as needed */
+}
+
+.artist-block ul {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.artist-block ul li {
+  margin-bottom: -8px; /* Adjust the bottom margin as needed */
+}
+
+.top-genre {
+  margin-bottom: 100px; /* Adjust the top margin as needed */
+  margin-left: 986px; /* Adjust the left margin as needed */
+  margin-top: 94px; /* Adjust the top margin as needed */
+
+}
+
+
+.top-genre ul {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+
+#audio-features-container {
+  position: relative;
+  top: -203px; /* Adjust as needed */
+  left: 550px; /* Adjust as needed */
+  margin: 0;
+  padding: 0;
+
+  font-size:45px; 
+}
+
+#audio-features-container ul li {
+  line-height: 0.8; /* Adjust as needed */
+}
+
+
+
+
+
+.feature-name {
+  display: inline-block; /* Ensure each feature name and value pair is on the same line */
+  width: 220px; /* Adjust the width as needed */
+
+}
+
+.feature-value {
+  display: inline-block;
+  width: calc(100% - 1800px);
+  text-align: right; /* Explicitly set text-align to right */
+}
+
+
+/* Custom CSS to position hover text */
+.hover-info {
+  position: absolute;
+  top: 34%;
+  left: 58.5%;
+  transform: translate(-50%, -50%);
+  font-size: 40px; /* Adjust the font size as needed */
+  text-align: center; /* Center the text horizontally */
+  width: 100%; /* Set width to 100% for centering */
+  line-height: 0.7; /* Adjust the line-height as needed */
+}
+
+.info-line {
+  display: block; /* Display the span as a block-level element */
+}
+
+#overlay {
+  position: fixed; /* Position fixed instead of absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: none;
+}
+
+#image-container {
+  position: fixed; /* Position fixed instead of absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* Ensure it's above the overlay */
+}
+
+#image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.top-genre {
+  position: absolute;
+  left: -720px; /* Adjust this value as needed */
+  top: 390px; /* Adjust this value as needed */
+  width: 920px; /* Adjust the width as needed */
+  text-align: right; /* Align the text to the right side of the container */
+
+}
+
+/* Ensure the body has relative positioning */
+body {
+    position: relative;
+}
+
+/* Style for the overlay container */
+.overlay {
+    position: absolute;
+    top: 170px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999; /* Ensure the overlay appears above other content */
+}
+
+/* Style for the overlay image */
+.overlay img {
+    display: block;
+    width: 99.7%; /* Adjust as needed */
+    height: 100%; /* Adjust as needed */
+    object-fit: cover; /* Ensure the image covers the container */
+}
+
+
+ /* CSS for overlay container */
+ .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+}
+
+
+/* CSS for navigation buttons */
+.navigation-buttons {
+  position: absolute;
+  bottom: 625px; /* Adjust the distance from the bottom as needed */
+  left: 53.4%;
+}
+
+/* CSS for navigation buttons */
+.navigation-buttons {
+  position: absolute;
+  bottom: 688px; /* Adjust the distance from the bottom as needed */
+  left: 58.2%;
+  transform: translateX(-50%);
+  display: flex; /* Use flexbox to arrange buttons horizontally */
+  justify-content: center; /* Center the buttons horizontally */
+  align-items: center; /* Center the buttons vertically */
+}
+
+.navigation-buttons img {
+  margin: 0 60px; /* Adjust the spacing between buttons as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
+#audio-element {
+  display: none;
+}
+
+
+#weapon-image-container {
+  position: fixed;
+  top: 778px; /* Adjust the top position to move the weapons upwards */
+  left: 33.7%;
+  transform: translateX(-50%);
+  z-index: 10000;
+}
+
+
+
+#character-image-container {
+  position: fixed;
+  top: 68px; /* Adjust the top position to move the weapons upwards */
+  left: 80.2%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  max-width: 450px;
+  max-height: 700px;
+}
+
+
+
+/* CSS for character image */
+#characterImage {
+  /* Set the maximum width and height of the image */
+  max-width: 130%;
+  max-height: 130%;
+}
+
+#video-containerz {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 99999; /* Set a high z-index to ensure the video appears on top */
+}
+
+
+
+
+
+
+
+
+
+.logout-btn {
+  display: flex;
+  padding: 10px 40px;
+  background-color: #007bff00; /* Button color */
+  color: #ffffff00; /* Text color */
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+
+
+.logout-container {
+  position: fixed;
+  bottom: 5px; /* Adjust this value to move the button up or down */
+  right: 350px; /* Adjust this value to move the button to the left or right */
+  z-index: 999; /* Ensure the button appears on top of other content */
+}
+
+.login-text {
+  display: flex;
+  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+  color: white; /* Set text color to blue (you can adjust this to match your design) */
+  font-size: 100px;
+
+}
+
+/* .login-text:hover {
+  color: #0056b3; Change text color on hover } */
+
+#login-button {
+  margin-top: 455px; /* Adjust the top margin to move the text downwards */
+  margin-left: 610px; /* Adjust the left margin to move the text to the right */
+}
+
+.hidden {
+  display: none;
+}
+
+#about-btn {
+display: flex;
+cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+color: white; /* Set text color to blue (you can adjust this to match your design) */
+font-size: 100px;
+margin-top: -10px; /* Adjust the top margin to move the text downwards */
+margin-left: 800px; /* Adjust the left margin to move the text to the right */
+}
+
+#overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  z-index: 9999;
+  display: none;
+}
+
+#about-image-container {
+  position: absolute;
+  top: -467px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#back-btn {
+  position: absolute !important; /* Ensure the position is absolute */
+  top: 860px !important; /* Adjust the top position */
+  left: 220px !important; /* Adjust the left position */
+  color: white !important; /* Set text color */
+  cursor: pointer !important; /* Set cursor */
+  z-index: 10000 !important; /* Set z-index */
+  font-size: 66px !important; /* Adjust font size */
 }
