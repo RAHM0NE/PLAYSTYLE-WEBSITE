@@ -33,6 +33,8 @@ export const getSpotifyData = async (_access_token) => {
   };
 };
 
+// TODO: instagram post, exit animation , copy rahmone heuristic for selection, black bars intro animation on logo
+
 const getMe = async (_access_token) => {
   const res = await fetch(`${BASE_URL}/spotify/me?code=${_access_token}`);
   return await res.json();
